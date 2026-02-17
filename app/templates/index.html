@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Depurador IA de PDF</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Depurador IA de PDF para lectura en voz alta</h1>
+      <p>
+        Sube un documento PDF y elimina automáticamente encabezados, pies de página,
+        numeración y ruido para dejar texto limpio.
+      </p>
+
+      <form id="upload-form" class="card">
+        <label for="pdf">Archivo PDF</label>
+        <input id="pdf" name="file" type="file" accept="application/pdf" required />
+
+        <label class="checkbox">
+          <input id="use-ai" type="checkbox" />
+          Refinar con IA (si el servidor tiene OPENAI_API_KEY)
+        </label>
+
+        <button type="submit">Depurar documento</button>
+      </form>
+
+      <section class="card">
+        <div class="toolbar">
+          <h2>Texto depurado</h2>
+          <div>
+            <button id="speak" type="button">🔊 Leer</button>
+            <button id="stop" type="button">⏹️ Detener</button>
+          </div>
+        </div>
+        <textarea id="output" rows="16" placeholder="Aquí aparecerá el texto limpio..."></textarea>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
