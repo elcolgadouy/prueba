@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de protocolo de lectura</title>
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Generador de protocolo para lectura en voz alta</h1>
+      <p>
+        Sube un archivo <b>TXT o PDF</b>, o pega texto OCR. El sistema detecta contenido repetido
+        (encabezados/pies), elimina metadatos y sugiere desde qué sección comenzar (por ejemplo,
+        <b>Prólogo</b>).
+      </p>
+
+      <label for="file">Archivo (.txt o .pdf)</label>
+      <input id="file" type="file" accept=".txt,.pdf,application/pdf,text/plain" />
+      <p id="fileStatus" class="status"></p>
+
+      <label for="keywords">Palabras clave para iniciar lectura</label>
+      <input id="keywords" value="Prólogo, Introducción, Capítulo" />
+
+      <label for="source">Texto fuente</label>
+      <textarea id="source" rows="14" placeholder="Pega aquí el texto OCR..."></textarea>
+
+      <button id="run">Generar protocolo</button>
+
+      <section id="output" hidden>
+        <h2>Resultado</h2>
+        <pre id="protocol"></pre>
+        <h3>Texto limpio para TTS</h3>
+        <textarea id="tts" rows="12" readonly></textarea>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.5.136/legacy/build/pdf.min.js"></script>
+    <script src="static/app.js"></script>
+  </body>
+</html>
